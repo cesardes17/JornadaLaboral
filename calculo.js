@@ -106,7 +106,7 @@ function esfestivo(dia, fechasFestivos) {
   );
 }
 
-function calculaJornadaLaboral(
+export default function calculaJornadaLaboral(
   diasLaboralesCiclo,
   diasDescansoCiclo,
   año,
@@ -149,4 +149,3 @@ function calculaJornadaLaboral(
   return resultados;
 }
 
-export default calculaJornadaLaboral;

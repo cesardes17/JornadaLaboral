@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Vacaciones</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div class="container form-container">
+        <div id="loading">
+            <p>Cargando...</p>
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Cargando...</span>
+            </div>
+        </div>
+        <div class="row w-100" id="form-container">
+            <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
+                <div id="textoExplicacion">
+                    <h1>Calculadora Jornada Laboral.</h1>
+                    <p>El ciclo de trabajo se repite todo el año incluido las vacaciones.</p>
+                    <p>Las bajas médicas se consideran días no recuperables y por lo tanto cuentan como días trabajados.
+                    </p>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="year">Selecciona el año</label>
+                        <select class="form-control" id="year">
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-date">Inicio de las vacaciones</label>
+                        <input type="date" class="form-control" id="start-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">Fin de las vacaciones</label>
+                        <input type="date" class="form-control" id="end-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="work-days">Días laborales del Ciclo</label>
+                        <input type="number" class="form-control" id="work-days" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="off-days">Días de descanso del Ciclo</label>
+                        <input type="number" class="form-control" id="off-days" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="daily-hours">Horas de la jornada laboral al dia</label>
+                        <input type="number" step="0.01" class="form-control" id="daily-hours" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="annual-hours">Horas requeridas anuales</label>
+                        <input type="number" step="0.01" class="form-control" id="annual-hours" value="1762" required>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block" id="botonCalcular">Calcular</button>
+                </form>
+            </div>
+        </div>
+        <div id="contenedorDatos">
+            <div class="alert alert-danger">
+                <p>Si el resultado es negativo, le debo a la empresa, si es positivo la empresa me debe.</p>
+            </div>
+            <table class="table table-striped table-responsive-md rounded ">
+                <thead>
+                    <tr>
+                        <th>Mes</th>
+                        <th>Días Trabajados</th>
+                        <th>Horas Trabajadas</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaBody">
+                    <!-- Los datos serán añadidos aquí dinámicamente -->
+                </tbody>
+
+                <tr id="filaSumatorio">
+                    <td>Total</td>
+                    <td id="totalDias"></td>
+                    <td id="totalHoras"></td>
+                </tr>
+                <tr id="filaDiferenciaHoras">
+                    <td>Diferencia Horas</td>
+                    <td id="diffHoras" colspan="2"></td>
+                </tr>
+                <tr id="filaDiferenciaDias">
+                    <td>Diferencia Días</td>
+                    <td id="diffDias" colspan="2"></td>
+                </tr>
+
+            </table>
+            <button type="button" class="btn btn-primary btn-block" id="botonVolver">Volver</button>
+
+        </div>
+        <!-- Footer siempre visible -->
+        <footer class="footer fixed-bottom bg-dark text-white text-center py-3">
+            <div>
+                <span>&copy; JR 2024</span>
+            </div>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>
